@@ -7,7 +7,7 @@ import About from "./Components/About";
 export default function App() {
   return (
     <>
-      <h2>Hello</h2>
+      <h2>Hello000</h2>
       <Routes>
         <Route path="/" element={<NavWrapper />}>
           <Route path="/" element={<Home />} />
