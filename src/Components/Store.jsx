@@ -5,7 +5,7 @@ export default function Store() {
 
     return (
         <>
-          <h2>Store</h2>  
+          <h1>Store</h1>  
         </>
     )
 }

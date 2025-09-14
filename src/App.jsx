@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Outlet, Route, Routes } from "react-router-dom";
 import Store from "./Components/Store";
 import Home from "./Components/Home";
 import About from "./Components/About";
@@ -7,11 +7,10 @@ import About from "./Components/About";
 export default function App() {
   return (
     <>
-      <h2>Hello000</h2>
       <Routes>
         <Route path="/" element={<NavWrapper />}>
           <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} />
+          <Route path="/store" element={<Store />} /> 
           <Route path="/about" element={<About />} />
         </Route>
       </Routes>
@@ -27,6 +26,7 @@ function NavWrapper() {
         <Link to="/store">Store</Link>
         <Link to="/about">About</Link>
       </nav>
+      <Outlet />
     </>
   );
 }
