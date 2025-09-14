@@ -23,7 +23,7 @@ function NavWrapper(){
   return (
     <>
     <nav>
-      <Link to="/">Home</Link>
+      <Link to="/">Home....</Link>
       <Link to="/store">Store</Link>
       <Link to="/about">About</Link>
     </nav>
