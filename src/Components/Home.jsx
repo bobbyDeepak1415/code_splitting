@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AdminData from "./AdminData";
-// import Sum from "../sum";
+import Sum from "../sum";
 
 export default function Home() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -9,11 +9,7 @@ export default function Home() {
     <>
       <h1>Home</h1>
       <button
-        onClick={() => {
-          import("../sum").then((module) => {
-            alert(module.default(4,3));
-          });
-        }}
+        onClick={()=>alert(Sum(4,3))}
       >
         4+3
       </button>
