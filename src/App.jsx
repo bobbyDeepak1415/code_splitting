@@ -1,9 +1,10 @@
 import React from "react";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
 import Store from "./Components/Store";
-import Home from "./Components/Home";
+// import Home from "./Components/Home";
 import About from "./Components/About";
 
+const Home = React.lazy(() => delay(2500).then(() => import("./Components/Home")));
 
 export default function App() {
   return (
@@ -11,7 +12,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<NavWrapper />}>
           <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} /> 
+          <Route path="/store" element={<Store />} />
           <Route path="/about" element={<About />} />
         </Route>
       </Routes>
@@ -27,7 +28,16 @@ function NavWrapper() {
         <Link to="/store">Store</Link>
         <Link to="/about">About</Link>
       </nav>
+      <React.Suspense fallback={<h2>Loading</h2>}>
+
       <Outlet />
+      </React.Suspense>
     </>
   );
+}
+
+function delay(time) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
 }
