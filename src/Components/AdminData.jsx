@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function AdminData() {
-    
-
-    return (
-        <>
-            <h2>AdminData</h2>
-        </>
-    )
+export function AdminData() {
+  return (
+    <>
+      <h2>AdminData</h2>
+    </>
+  );
 }

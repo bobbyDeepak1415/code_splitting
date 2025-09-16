@@ -1,9 +1,22 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
-import Store from "./Components/Store";
-import Home from "./Components/Home";
-import About from "./Components/About";
+// import Store from "./Components/Store";
+// import Home from "./Components/Home";
+// import About from "./Components/About";
 
+const Home = React.lazy(() =>
+  delay(1500).then(() => import("./Components/Home"))
+);
+const Store = React.lazy(() =>
+  delay(1500).then(() => import("./Components/Store"))
+);
+const About = React.lazy(() =>
+  delay(1500).then(() =>
+    import("./Components/About").then((module) => {
+      return { default: module.About };
+    })
+  )
+);
 
 export default function App() {
   return (
@@ -27,10 +40,9 @@ function NavWrapper() {
         <Link to="/store">Store</Link>
         <Link to="/about">About</Link>
       </nav>
-      <React.Suspense fallback={<h2>Loading</h2>}>
-
-      <Outlet />
-      </React.Suspense>
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 }
