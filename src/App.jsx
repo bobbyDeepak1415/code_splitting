@@ -1,21 +1,15 @@
 import React, { Suspense } from "react";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
-// import Store from "./Components/Store";
+import Store from "./Components/Store";
 // import Home from "./Components/Home";
-// import About from "./Components/About";
+import About from "./Components/About";
 
 const Home = React.lazy(() =>
-  delay(1500).then(() => import("./Components/Home"))
-);
-const Store = React.lazy(() =>
-  delay(1500).then(() => import("./Components/Store"))
-);
-const About = React.lazy(() =>
-  delay(1500).then(() =>
-    import("./Components/About").then((module) => {
-      return { default: module.About };
-    })
-  )
+  delay(1500).then(() => import("./Components/Home").then((module)=>{
+    return {
+      default:module.Home
+    }
+  }))
 );
 
 export default function App() {
@@ -41,9 +35,14 @@ function NavWrapper() {
         <Link to="/about">About</Link>
       </nav>
       <Suspense fallback={<h2>Loading...</h2>}>
-        <Outlet />
+      <Outlet />
       </Suspense>
     </>
   );
 }
 
+function delay(time) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
+}

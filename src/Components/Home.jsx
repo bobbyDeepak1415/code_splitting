@@ -1,27 +1,26 @@
-import React, { Suspense, useState, useTransition } from "react";
+import React, { Suspense, useState } from "react";
 // import AdminData from "./AdminData";
 // import Sum from "../sum";
 
 const AdminData = React.lazy(() =>
-  delay(1000)
-    .then(() => import("../Components/AdminData"))
-    .then((module) => {
+  delay(1200).then(() =>
+    import("./AdminData").then((module) => {
       return {
-        default: module.AdminData,
+        default: module.default,
       };
     })
+  )
 );
 
-export default function Home() {
+export function Home() {
   const [isAdmin, setIsAdmin] = useState(false);
-  const [isPending, startTransition] = useTransition();
 
   return (
     <>
       <h1>Home</h1>
       <button
         onClick={() =>
-          import("../sum").then((module) => alert(module.default(4, 3)))
+          import("../sum").then((module) => alert(module.default(4, 9)))
         }
       >
         4+3
@@ -29,16 +28,8 @@ export default function Home() {
       <br></br>
       <br></br>
       <br></br>
-      <button
-        onClick={() => {
-          startTransition(() => {
-            setIsAdmin((prev) => !prev);
-          });
-        }}
-      >
-        Toggle Admin
-      </button>
-      {isPending && "Loading"}
+      <button onClick={() => setIsAdmin((prev) => !prev)}>Toggle Admin</button>
+
       {isAdmin ? (
         <Suspense fallback={<h2>fetching...</h2>}>
           <AdminData />
