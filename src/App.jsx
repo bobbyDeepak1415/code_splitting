@@ -1,10 +1,9 @@
 import React from "react";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
 import Store from "./Components/Store";
-// import Home from "./Components/Home";
+import Home from "./Components/Home";
 import About from "./Components/About";
 
-const Home = React.lazy(() => delay(2500).then(() => import("./Components/Home")));
 
 export default function App() {
   return (
@@ -36,8 +35,3 @@ function NavWrapper() {
   );
 }
 
-function delay(time) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, time);
-  });
-}
