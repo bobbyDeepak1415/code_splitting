@@ -1,9 +1,10 @@
+import FileUploader from "./components/FileUploader"
 
 function App() {
 
   return (
     <div>
-      <input></input>
+      <FileUploader/>
     </div>
   )
 }
