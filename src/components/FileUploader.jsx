@@ -4,32 +4,43 @@ export default function FileUploader() {
 
 const [selectedFiles,setSelectedFiles]=useState([])
 
-const inputRef=useRef(0)
+const inputRef=useRef(null)
 
 const handleClick=()=>{
+    inputRef.current.value=""
     inputRef.current.click()
 }
 
 const handleSelect=(e)=>{
-    const files=Array.dataTransfer.files(e.)
+
+    const localArr=Array.from(e.target.files)
+
+
+    setSelectedFiles(prev=>[...prev,...localArr])
 
 
 
 }
 
-const handleDrop=()=>{
+const handleDrop=(e)=>{
+    e.preventDefault()
+    const localArr=Array.from(e.dataTransfer.files)
+    setSelectedFiles([...selectedFiles,...localArr])
 
 }
 
 const handleDragEnter=(e)=>{
 e.preventDefault()
+e.stopEventPropagation()
 }
 
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <input
-          onChange={(e) => handleSelect()}
+        value={selectedFiles}
+        multiple
+          onChange={(e) => handleSelect(e)}
           type="file"
           ref={inputRef}
           hidden
@@ -39,9 +50,9 @@ e.preventDefault()
       <div style={{display:"flex",justifyContent:"center"}} >
 
       <div
-        onDragEnter={() => handleDragEnter()}
-        onDragOver={() => handleDragEnter()}
-        onDrop={()=>handleDrop()}
+        onDragEnter={handleDragEnter}
+        onDragOver={handleDragEnter}
+        onDrop={(e)=>handleDrop(e)}
         style={{
             marginTop: "20px",
             border: "1px dashed",
