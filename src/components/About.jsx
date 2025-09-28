@@ -1,11 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export default function About() {
-    
-
-    return (
-        <>
-            Admin Logged In
-        </>
-    )
+export function About() {
+  return <>Admin Logged In</>;
 }
