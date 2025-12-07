@@ -20,7 +20,7 @@ export default function Home() {
       <div>
         <button
           onClick={() =>
-            import("../sum").then((module) => alert(module.default(3, 4)))
+            import("../sum").then((module) => console.log(module.default(3, 4)))
           }
         >
           Add 3,4

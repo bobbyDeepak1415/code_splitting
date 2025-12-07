@@ -22,6 +22,7 @@ const About = React.lazy(() =>
     })
   )
 );
+
 const Store = React.lazy(() =>
   import("./components/Store").then((module) => {
     return {
@@ -29,6 +30,8 @@ const Store = React.lazy(() =>
     };
   })
 );
+
+
 
 function App() {
   return (
@@ -56,7 +59,7 @@ function App() {
     </div>
   );
 }
-
+.
 export default App;
 
 function NavWrapper() {
