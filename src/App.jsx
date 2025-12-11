@@ -57,7 +57,7 @@ function App() {
     </div>
   );
 }
-.
+
 export default App;
 
 function NavWrapper() {
