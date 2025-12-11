@@ -31,8 +31,6 @@ const Store = React.lazy(() =>
   })
 );
 
-
-
 function App() {
   return (
     <div>
