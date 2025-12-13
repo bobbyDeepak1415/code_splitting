@@ -10,7 +10,7 @@ const Home1 = () => {
       <br></br>
       <button
         onClick={() =>
-          import("../sum").then((module) => alert(module.Sum(2, 8)))
+          import("../sum").then((module) => alert(module.default(2, 8)))
         }
       >
         Add 2,8
