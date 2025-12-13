@@ -4,20 +4,21 @@ import Home1 from "./Home1";
 // import About1 from "./About1";
 // import Store1 from "./Store1";
 
-const About1 = React.lazy(() =>
-  import("./About1").then((module) => {
+const About1 = React.lazy(() => {
+  return import("./About1").then((module) => {
+    return {
+      default: module.default,
+    };
+  });
+});
+
+const Store1 = React.lazy(() =>
+  import("./Store1").then((module) => {
     return {
       default: module.default,
     };
   })
 );
-
-const Store1=React.lazy(()=>import('./Store1').then((module)=>{
-  return {
-    default:module.default
-  }
-}))
-
 
 const App1 = () => {
   return (
