@@ -36,6 +36,9 @@ function NavWrapper() {
           <Link to="/store1">Store1</Link>
         </nav>
 
+        <br></br>
+        <br></br>
+
         <Outlet />
       </div>
     </>
