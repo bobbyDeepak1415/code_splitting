@@ -17,7 +17,7 @@ const Store1 = React.lazy(() =>
     return {
       default: module.default,
     };
-  }).
+  })
 );
 
 const App1 = () => {
