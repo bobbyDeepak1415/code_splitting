@@ -30,7 +30,7 @@ function NavWrapper() {
   return (
     <>
       <div>
-        <nav>
+        <nav style={{ display: "flex", gap: "1rem", fontSize: "2rem" }}>
           <Link to="/">Home1</Link>
           <Link to="/about1">about1</Link>
           <Link to="/store1">Store1</Link>
