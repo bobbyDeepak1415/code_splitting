@@ -19,7 +19,7 @@ const Store1 = React.lazy(() =>
     };
   })
 );
-
+.
 const App1 = () => {
   return (
     <div>
