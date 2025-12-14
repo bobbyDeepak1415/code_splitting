@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Store1 = () => {
   return (
     <div>
-      Store11111
+      <h1>Store1</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Store1
+export default Store1;
