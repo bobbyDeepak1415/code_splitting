@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Outlet, Route, Routes } from "react-router-dom";
 import Home1 from "./Home1";
 import Store1 from "./Store1";
 import About1 from "./About1";
@@ -34,6 +34,7 @@ function NavWrapper() {
         <Link to="/about1">About1</Link>
         <Link to="/store1">Storre1</Link>
       </nav>
+      <Outlet/>
     </div>
   );
 }
