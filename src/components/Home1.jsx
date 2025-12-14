@@ -1,5 +1,5 @@
 import React from "react";
-import sum from "../sum";
+// import sum from "../sum";
 
 const Home1 = () => {
   return (
@@ -8,7 +8,13 @@ const Home1 = () => {
       <br></br>
       <br></br>
       <br></br>
-      <button onClick={() => alert(sum(2, 9))}>Add 2,9</button>
+      <button
+        onClick={() =>
+          import("../sum").then((module) => alert(module.sum(2, 9)))
+        }
+      >
+        Add 2,9
+      </button>
     </div>
   );
 };
