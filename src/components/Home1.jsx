@@ -1,22 +1,11 @@
-import React from "react";
-// import sum from "../sum";
+import React from 'react'
 
 const Home1 = () => {
   return (
     <div>
-      <h1>Home1</h1>
-      <br></br>
-      <br></br>
-      <br></br>
-      <button
-        onClick={() =>
-          import("../sum").then((module) => alert(module.sum(2, 9)))
-        }
-      >
-        Add 2,9
-      </button>
+      Home 1
     </div>
-  );
-};
+  )
+}
 
-export default Home1;
+export default Home1
