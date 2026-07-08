@@ -23,6 +23,8 @@ const About = React.lazy(() =>
   )
 );
 
+
+
 const Store = React.lazy(() =>
   import("./components/Store").then((module) => {
     return {
