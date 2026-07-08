@@ -40,7 +40,7 @@ function App() {
             path="/"
             element={
               <Suspense fallback={<h4>"fetching..."</h4>}>
-                <Home />
+                <Home/>
               </Suspense>
             }
           >
