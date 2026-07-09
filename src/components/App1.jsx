@@ -1,8 +1,24 @@
 import React, { Suspense } from "react";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
-import Home1 from "./Home1";
+// import Home1 from "./Home1";
 import About1 from "./About1";
-import { Store1 } from "./Store1";
+// import { Store1 } from "./Store1";
+
+const Home1 = React.lazy(() =>
+  import("./Home1").then((module) => {
+    return {
+      default: module.default,
+    };
+  }),
+);
+
+const Store1 = React.lazy(() =>
+  import("./Store1").then((module) => {
+    return {
+      default: module.Store1,
+    };
+  }),
+);
 
 const App1 = () => {
   return (
