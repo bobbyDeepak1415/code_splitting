@@ -1,37 +1,39 @@
-import React, { Suspense } from "react";
-import { Routes,Route, Link, Outlet } from "react-router-dom";
-import Home1 from "./Home1";
-import  About1  from "./About1";
-import { Store1 } from "./Store1";
+import React from 'react'
+import { Link, Outlet, Route, Routes } from 'react-router-dom'
+import Home1 from './Home1'
+import About1 from './About1'
+import {Store1} from './Store1'
 
 const App1 = () => {
-  return <div>
+  return (
+    <div>
+      <Routes>
+        <Route path='/' element={<NavWrapper/>}>
+<Route path='/' element={<Home1/>}>Home</Route>
+<Route path='/about' element={<About1/>}>Home</Route>
+<Route path='/store' element={<Store1/>}>Home</Route>
+        </Route>
+      </Routes>
 
-<Routes>
-  <Route path='/' element={<NavWrapper/>}>
-<Route path="/" element={<Home1/>}>Home</Route>
-<Route path="/about" element={<About1/>}>Home</Route>
-<Route path="/store" element={<Store1/>}>Home</Route>
-  </Route>
-</Routes>
 
-  </div>;
-};
-
+      
+    </div>
+  )
+}
 
 function NavWrapper(){
   return (
     <>
-    <nav>
-      <Link to='/'>Home</Link>
-      <Link to='/about'>About</Link>
-      <Link to='/store'>Store</Link>
+    <nav style={{display:"flex",border:"1px solid black",gap:"20px",fontSize:"30px",}}>
+
+    <Link to='./'>Home</Link>
+    <Link to='./about'>About</Link>
+    <Link to='./store'>Store</Link>
     </nav>
-    <Suspense>
-      <Outlet/>
-    </Suspense>
+    <Outlet/>
     </>
   )
 }
 
-export default App1;
+export default App1
+
