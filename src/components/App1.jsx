@@ -1,12 +1,17 @@
 import React, { Suspense } from "react";
-import { Routes,Route } from "react-router-dom";
+import { Routes,Route, Link, Outlet } from "react-router-dom";
+import Home1 from "./Home1";
+import  About1  from "./About1";
+import { Store1 } from "./Store1";
 
 const App1 = () => {
   return <div>
 
 <Routes>
   <Route path='/' element={<NavWrapper/>}>
-<Route path="/" element={}>Home</Route>
+<Route path="/" element={<Home1/>}>Home</Route>
+<Route path="/about" element={<About1/>}>Home</Route>
+<Route path="/store" element={<Store1/>}>Home</Route>
   </Route>
 </Routes>
 
