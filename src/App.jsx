@@ -12,7 +12,8 @@ const Home = React.lazy(() =>
       };
     })
   )
-);
+)
+
 const About = React.lazy(() =>
   delay(2500).then(() =>
     import("./components/About").then((module) => {
@@ -22,7 +23,6 @@ const About = React.lazy(() =>
     })
   )
 );
-
 
 
 const Store = React.lazy(() =>
