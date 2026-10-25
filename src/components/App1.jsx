@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Link, Outlet, Route, Routes } from 'react-router-dom'
-import Home1 from './Home1'
+// import Home1 from './Home1'
 import About1 from './About1'
+
 import {Store1} from './Store1'
+
+
+const Home1=React.lazy(()=>import('./Home1').then((module)=>{
+return {
+  default:module.default
+}
+}))
 
 const App1 = () => {
   return (
@@ -30,10 +38,12 @@ function NavWrapper(){
     <Link to='./about'>About</Link>
     <Link to='./store'>Store</Link>
     </nav>
+    <Suspense fallback={<p>Loading...</p>}>
+
     <Outlet/>
+    </Suspense>
     </>
   )
 }
 
 export default App1
-
